@@ -8,12 +8,16 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
+import { ReservationsComponent } from './reservations/reservations.component';
+import { AddReservationComponent } from './add-reservation/add-reservation.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    ReservationsComponent,
+    AddReservationComponent
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AddReservationComponent } from './add-reservation/add-reservation.component';
 import { LoginComponent } from './login/login.component';
+import { ReservationsComponent } from './reservations/reservations.component';
 import { SignupComponent } from './signup/signup.component';
 
 const routes: Routes = [
@@ -11,6 +13,14 @@ const routes: Routes = [
     {
         path: 'signup',
         component: SignupComponent
+    },
+    {
+        path: 'home',
+        component: ReservationsComponent
+    },
+    {
+        path: 'add-reservation',
+        component: AddReservationComponent
     }
 ];
 
