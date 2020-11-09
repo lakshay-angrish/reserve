@@ -1,0 +1,19 @@
+{
+  "name": "reserve",
+  "version": "1.0.0",
+  "description": "online reservation portal for restaurant owners",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lakshay-angrish/reserve.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lakshay-angrish/reserve/issues"
+  },
+  "homepage": "https://github.com/lakshay-angrish/reserve#readme"
+}
