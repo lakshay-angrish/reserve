@@ -1,12 +1,15 @@
+<div class="jumbotron">
+    <h1 class="display-4">{{ restaurantName }}</h1>
+</div>
 <div class="container" id="home">
     <div class="row">
         <div class="col-md-10 p-5 border border-warning rounded">
             <div class="list-group w-100">
                 <div class="list-group-item list-group-item-warning w-100" *ngFor="let res of reservations">
-                    <strong>{{ res.name }},</strong> <small>{{ res.phone }}, {{ res. email}}</small>
+                    <strong>{{ res.name }},</strong> <small>{{ res.phone }} <br> {{ res. email}}</small>
                     <br>
                     {{ res.date }}, {{ res.time }}
-                    <button id="delBtn" class="btn btn-outline-danger ml-2">
+                    <button id="delBtn" class="btn btn-outline-danger ml-2" (click)="deleteReservation(res._id)">
                         delete
                     </button>
                     <button id="editBtn" class="btn btn-outline-success">

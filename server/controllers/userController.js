@@ -65,6 +65,7 @@ exports.logIn = (req, res, next) => {
             message: "Auth Success",
             token: token,
             id: users[0]._id,
+            restaurantName: users[0].restaurantName,
           });
         }
         return res.status(401).json({

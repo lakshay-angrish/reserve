@@ -9,11 +9,13 @@ import { Router } from '@angular/router';
 })
 export class ReservationsComponent implements OnInit {
   reservations = [];
+  restaurantName: string;
 
   constructor(private router: Router, private http: HttpClient) {}
 
   ngOnInit(): void {
     if (sessionStorage.getItem('token') && sessionStorage.getItem('id')) {
+      this.restaurantName = sessionStorage.getItem('restaurantName');
       this.getAllReservations();
     } else {
       this.router.navigateByUrl('');
@@ -40,6 +42,33 @@ export class ReservationsComponent implements OnInit {
         (response: any[]) => {
           this.reservations = response;
           console.log(response);
+        },
+        (err) => {
+          console.log(err);
+          alert(err.message);
+        }
+      );
+  }
+
+  deleteReservation(id): void {
+    const ownerID = sessionStorage.getItem('id');
+    const token = sessionStorage.getItem('token');
+    const httpHeaders = new HttpHeaders({
+      Authorization: 'Bearer ' + token,
+    });
+
+    this.http
+      .request('delete', 'http://localhost:3000/reservation/' + id, {
+        body: {
+          ownerID: ownerID,
+        },
+        responseType: 'json',
+        headers: httpHeaders,
+      })
+      .subscribe(
+        (response: any) => {
+          console.log(response);
+          window.location.reload();
         },
         (err) => {
           console.log(err);

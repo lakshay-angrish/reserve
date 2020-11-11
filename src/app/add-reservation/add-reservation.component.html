@@ -4,25 +4,25 @@
             <form>
                 <div class="form-group">
                     <label for="name">Name</label>
-                    <input type="text" class="form-control">
+                    <input type="text" class="form-control" name="name" [(ngModel)]="name">
                 </div>
                 <div class="form-group">
                     <label for="email">Email</label>
-                    <input type="email" class="form-control">
+                    <input type="email" class="form-control" name="email" [(ngModel)]="email">
                 </div>
                 <div class="form-group">
                     <label for="phone">Phone</label>
-                    <input type="tel" class="form-control">
+                    <input type="tel" class="form-control" name="phone" [(ngModel)]="phone">
                 </div>
                 <div class="form-group">
                     <label for="date">Date</label>
-                    <input type="date" class="form-control">
+                    <input type="date" class="form-control" name="date" [(ngModel)]="date">
                 </div>
                 <div class="form-group">
                     <label for="time">Time</label>
-                    <input type="time" class="form-control" min="18:00" max="22:00" value="18:00">
+                    <input type="time" class="form-control" min="18:00" max="22:00" value="18:00" name="time" [(ngModel)]="time">
                 </div>
-                <button type="submit" class="btn btn-primary">Add</button>
+                <button type="submit" class="btn btn-primary" (click)="addReservation()">Add</button>
             </form>
         </div>
     </div>
