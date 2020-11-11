@@ -10,6 +10,7 @@ import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { ReservationsComponent } from './reservations/reservations.component';
 import { AddReservationComponent } from './add-reservation/add-reservation.component';
+import { EditReservationComponent } from './edit-reservation/edit-reservation.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { AddReservationComponent } from './add-reservation/add-reservation.compo
     LoginComponent,
     SignupComponent,
     ReservationsComponent,
-    AddReservationComponent
+    AddReservationComponent,
+    EditReservationComponent
   ],
   imports: [
     BrowserModule,

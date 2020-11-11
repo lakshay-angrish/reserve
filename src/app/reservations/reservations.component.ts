@@ -60,7 +60,7 @@ export class ReservationsComponent implements OnInit {
     this.http
       .request('delete', 'http://localhost:3000/reservation/' + id, {
         body: {
-          ownerID: ownerID,
+          ownerID,
         },
         responseType: 'json',
         headers: httpHeaders,
@@ -75,5 +75,18 @@ export class ReservationsComponent implements OnInit {
           alert(err.message);
         }
       );
+  }
+
+  editReservation(reservation): void {
+    this.router.navigate(['edit-reservation'], {
+      state: {
+        data: reservation,
+      },
+    });
+  }
+
+  logOut(): void {
+    sessionStorage.clear();
+    this.router.navigateByUrl('');
   }
 }

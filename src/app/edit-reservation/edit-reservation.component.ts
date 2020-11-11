@@ -3,25 +3,35 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-add-reservation',
-  templateUrl: './add-reservation.component.html',
-  styleUrls: ['./add-reservation.component.css'],
+  selector: 'app-edit-reservation',
+  templateUrl: './edit-reservation.component.html',
+  styleUrls: ['./edit-reservation.component.css'],
 })
-export class AddReservationComponent implements OnInit {
+export class EditReservationComponent implements OnInit {
   email: string;
   name: string;
   phone: string;
-  date: Date;
+  date: string;
   time: string;
   restaurantName: string;
+  id: string;
 
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(private router: Router, private http: HttpClient) {}
 
   ngOnInit(): void {
     this.restaurantName = sessionStorage.getItem('restaurantName');
+    // this.date = new Date(history.state.data.date);
+    this.date = new Date(history.state.data.date)
+      .toISOString()
+      .substring(0, 10);
+    this.email = history.state.data.email;
+    this.time = history.state.data.time;
+    this.name = history.state.data.name;
+    this.phone = history.state.data.phone;
+    this.id = history.state.data._id;
   }
 
-  addReservation(): void {
+  updateReservation(): void {
     const ownerID = sessionStorage.getItem('id');
     const token = sessionStorage.getItem('token');
     const httpHeaders = new HttpHeaders({
@@ -29,20 +39,18 @@ export class AddReservationComponent implements OnInit {
     });
 
     const body = {
-      email: this.email,
-      name: this.name,
-      phone: this.phone,
+      ownerID,
       time: this.time,
       date: new Date(this.date).toDateString(),
     };
 
     this.http
-      .post('http://localhost:3000/reservation/' + ownerID, body, {
+      .patch('http://localhost:3000/reservation/' + this.id, body, {
         responseType: 'json',
         headers: httpHeaders,
       })
       .subscribe(
-        (response: any[]) => {
+        (response: any) => {
           console.log(response);
           this.router.navigateByUrl('home');
         },
@@ -52,7 +60,6 @@ export class AddReservationComponent implements OnInit {
         }
       );
   }
-
   logOut(): void {
     sessionStorage.clear();
     this.router.navigateByUrl('');

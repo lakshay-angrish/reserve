@@ -1,5 +1,6 @@
 <div class="jumbotron">
     <h1 class="display-4">{{ restaurantName }}</h1>
+    <button id="reserveBtn" class="btn btn-info" (click)="logOut()">Log Out</button>
 </div>
 <div class="container" id="home">
     <div class="row">
@@ -9,10 +10,10 @@
                     <strong>{{ res.name }},</strong> <small>{{ res.phone }} <br> {{ res. email}}</small>
                     <br>
                     {{ res.date }}, {{ res.time }}
-                    <button id="delBtn" class="btn btn-outline-danger ml-2" (click)="deleteReservation(res._id)">
+                    <button id="reserveBtn" class="btn btn-outline-danger ml-2" (click)="deleteReservation(res._id)">
                         delete
                     </button>
-                    <button id="editBtn" class="btn btn-outline-success">
+                    <button id="reserveBtn" class="btn btn-outline-success" (click)="editReservation(res)">
                         edit
                     </button>
                 </div>
