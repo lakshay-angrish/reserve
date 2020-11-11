@@ -1,0 +1,25 @@
+const mongoose = require('mongoose');
+
+const userSchema = mongoose.Schema({
+    email: {
+        type: String,
+        required: true,
+        unique: true
+    },
+    restaurantName: {
+        type: String,
+        required: true,
+        unique: true
+    },
+    restaurantAddress: {
+        type: String,
+        required: true,
+        unique: true
+    },
+    password: {
+        type: String,
+        required: true
+    }
+});
+
+module.exports = mongoose.model('User', userSchema);

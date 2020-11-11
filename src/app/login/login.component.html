@@ -3,17 +3,17 @@
         <div class="col-md p-5">
             <form>
                 <div class="form-group">
-                    <label for="inputEmail1">Owner Email</label>
-                    <input type="email" class="form-control">
+                    <label for="email">Owner Email</label>
+                    <input type="email" name="email" class="form-control" [(ngModel)]="email">
                 </div>
                 <div class="form-group">
-                    <label for="inputPassword1">Password</label>
-                    <input type="password" class="form-control">
+                    <label for="password">Password</label>
+                    <input type="password" name="password" class="form-control" [(ngModel)]="password">
                 </div>
                 <div class="text-right">
                     <a routerLink="signup" class="text-primary">Create Account</a>
                 </div>
-                <button type="submit" class="btn btn-primary">Log In</button>
+                <button type="submit" class="btn btn-primary" (click)="logIn()">Log In</button>
             </form>
         </div>
     </div>
