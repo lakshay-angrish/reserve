@@ -1,7 +1,19 @@
 <div class="container" id="home">
     <div class="row">
-        <div class="col-md-10 p-3 border border-warning rounded">
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Error totam quia recusandae, nam laboriosam voluptatem, nisi officia dolore aut dignissimos rem reiciendis ea quaerat. Eum fuga incidunt repudiandae commodi non!</p>
+        <div class="col-md-10 p-5 border border-warning rounded">
+            <div class="list-group w-100">
+                <div class="list-group-item list-group-item-warning w-100" *ngFor="let res of reservations">
+                    <strong>{{ res.name }},</strong> <small>{{ res.phone }}, {{ res. email}}</small>
+                    <br>
+                    {{ res.date }}, {{ res.time }}
+                    <button id="delBtn" class="btn btn-outline-danger ml-2">
+                        delete
+                    </button>
+                    <button id="editBtn" class="btn btn-outline-success">
+                        edit
+                    </button>
+                </div>
+            </div>
         </div>
         <div class="col-md-2">
             <button class="btn btn-success" (click)="goToAddReservationPage()">Add Reservation</button>

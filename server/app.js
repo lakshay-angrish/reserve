@@ -5,6 +5,7 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 
 const userRouter = require('./routes/userRouter');
+const reservationRouter = require('./routes/reservationRouter');
 
 mongoose.connect('mongodb+srv://lakshay:' + process.env.MONGO_ATLAS_PASSWORD + '@cluster0.pqlps.mongodb.net/Cluster0?retryWrites=true&w=majority', {
     useNewUrlParser: true,
@@ -16,6 +17,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.use('/user', userRouter);
+app.use('/reservation', reservationRouter);
 
 app.use((req, res, next) => {
     const error = new Error('Not Found');

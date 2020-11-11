@@ -1,6 +1,15 @@
-const router = require('express').Router();
-const reservationController = require('../controllers/reservationController');
+const router = require("express").Router();
+const reservationController = require("../controllers/reservationController");
+const checkAuth = require("../checkAuth");
 
-//router.route('/')
+router
+  .route("/:ownerID")
+  .get(checkAuth, reservationController.getAllReservations)
+  .post(checkAuth, reservationController.createReservation);
 
-module.exports = router
+router
+  .route("/:reservationID")
+  .patch(checkAuth, reservationController.updateReservation)
+  .delete(checkAuth, reservationController.deleteReservation);
+
+module.exports = router;
