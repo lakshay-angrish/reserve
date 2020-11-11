@@ -11,6 +11,7 @@ import { SignupComponent } from './signup/signup.component';
 import { ReservationsComponent } from './reservations/reservations.component';
 import { AddReservationComponent } from './add-reservation/add-reservation.component';
 import { EditReservationComponent } from './edit-reservation/edit-reservation.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { EditReservationComponent } from './edit-reservation/edit-reservation.co
     SignupComponent,
     ReservationsComponent,
     AddReservationComponent,
-    EditReservationComponent
+    EditReservationComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,

@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { AddReservationComponent } from './add-reservation/add-reservation.component';
 import { EditReservationComponent } from './edit-reservation/edit-reservation.component';
 import { LoginComponent } from './login/login.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 import { ReservationsComponent } from './reservations/reservations.component';
 import { SignupComponent } from './signup/signup.component';
 
@@ -26,6 +27,10 @@ const routes: Routes = [
     {
         path: 'edit-reservation',
         component: EditReservationComponent
+    },
+    {
+        path: '**',
+        component: NotFoundComponent
     }
 ];
 
